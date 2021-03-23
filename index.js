@@ -1,16 +1,16 @@
-const map = (arr, callBack) => {
+const map = (arr, callback) => {
   const newArr = [...arr]
   for (let i = 0; i < newArr.length; i++) {
-    if(newArr[i]) newArr[i] = callBack(newArr[i]);
+    if(newArr[i]) newArr[i] = callback(newArr[i]);
   }
   return newArr
 };
 
-const filter = (arr, callBack) => {
+const filter = (arr, callback) => {
   const newArr = []
 
   for (let i = 0; i < arr.length; i++) {
-    if(callBack(arr[i]) === true) {
+    if(callback(arr[i]) === true) {
       const lastIndex = newArr.length
       newArr[lastIndex] = arr[i]
     }
@@ -19,7 +19,9 @@ const filter = (arr, callBack) => {
 }
 
 const findIndex = (arr, callback) => {
-  
+  for (let i = 0; i < arr.length; i++) {
+    if(callback(arr[i]) === true) return i
+  }
 }
 
 module.exports = {
