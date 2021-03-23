@@ -24,8 +24,26 @@ const findIndex = (arr, callback) => {
   }
 }
 
+const reduce = (arr, callback, [initialValue]) => {
+  if(initialValue) {
+    let acc = initialValue
+    for (let i = 0; i < arr.length; i++) {
+      acc = callback(acc, arr[i])
+    }
+    return acc
+  } 
+  else {
+    let acc = 0
+    for (let i = 0; i < arr.length; i++) {
+      acc = callback(acc, arr[i])
+    }
+    return acc
+  }
+}
+
 module.exports = {
   map,
   filter,
   findIndex,
+  reduce
 }
