@@ -3,6 +3,7 @@ const {
   filter,
   findIndex,
   reduce,
+  every,
 } = require('./index');
 
 describe('array method functions', () => {
@@ -43,6 +44,14 @@ describe('array method functions', () => {
   })
 
   it('EVERY', () => {
-    
+    const trueArr = [2, 4, 6];
+    const falseArr = [2, 4, 5];
+    const testFunc = (number) => number % 2 === 0;
+
+    const everyTrue = every(trueArr, testFunc);
+    const everyFalse = every(falseArr, testFunc);
+
+    expect(everyTrue).toEqual(true);
+    expect(everyFalse).toEqual(false);
   })
 })
